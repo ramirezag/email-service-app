@@ -54,7 +54,7 @@
         evt.preventDefault()
         this.$parent.clearMessages()
         this.sending = true
-        this.axios.post('http://localhost:3000/api/email', this.form).then(() => {
+        this.axios.post(process.env.API_BASE_URL, this.form).then(() => {
           this.$parent.showSuccessMessage('Email successfully sent.')
           this.sending = false
         }).catch((error) => {
