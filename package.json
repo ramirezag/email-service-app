@@ -1,6 +1,6 @@
 {
   "name": "email-service-app",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Email Service App UI forked from @coreui/vue:1.0.10. See https://github.com/mrholek/CoreUI-Vue/tree/master/Vue_Starter",
   "license": "MIT",
   "private": true,
@@ -14,13 +14,15 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "bootstrap": "4.0.0",
-    "bootstrap-vue": "2.0.0-rc.1",
+    "bootstrap-vue": "^2.0.0-rc.1",
     "chart.js": "2.7.1",
     "flag-icon-css": "2.9.0",
     "font-awesome": "^4.7.0",
     "simple-line-icons": "^2.4.1",
     "vue": "2.5.13",
+    "vue-axios": "^2.0.2",
     "vue-chartjs": "3.1.0",
     "vue-router": "3.0.1"
   },

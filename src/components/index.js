@@ -1,10 +1,10 @@
-import Aside from './Aside.vue'
-import Breadcrumb from './Breadcrumb.vue'
-import Callout from './Callout.vue'
-import Footer from './Footer.vue'
-import Header from './Header.vue'
-import Sidebar from './Sidebar/Sidebar.vue'
-import Switch from './Switch.vue'
+import Aside from './Aside'
+import Breadcrumb from './Breadcrumb'
+import Callout from './Callout'
+import Footer from './Footer'
+import Header from './Header'
+import Sidebar from './Sidebar/Sidebar'
+import Switch from './Switch'
 
 export {
   Aside,
