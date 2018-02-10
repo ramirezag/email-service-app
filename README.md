@@ -12,6 +12,7 @@
 1. Clone the project
 ``` bash
 git clone https://github.com/ramirezag/email-service-app
+cd email-service-app
 ```
 2. Install the dependencies
 ``` bash
@@ -19,7 +20,6 @@ git clone https://github.com/ramirezag/email-service-app
 ```
 3. Inside the project, create .env file and set API_BASE_URL
 ``` bash
-cd email-service-app
 cat echo "API_BASE_URL=http://localhost:3000/api" > .env // Replace API_BASE_URL value to the value of where you deployed the email-service-api
 ```
 4. Serve with hot reload at localhost:8080
