@@ -8,16 +8,20 @@
               label-for="from">
               <b-form-input id="fromInput" type="email" v-model="form.from" placeholder="Enter email"></b-form-input>
             </b-form-group>
-            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="to" label="To:" label-for="to">
+            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="to" label="To:"
+              label-for="to">
               <b-form-input id="toInput" type="email" v-model="form.to" placeholder="Enter email"></b-form-input>
             </b-form-group>
-            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="cc" label="Cc:" label-for="cc">
+            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="cc" label="Cc:"
+              label-for="cc">
               <b-form-input id="ccInput" type="email" label-cols="2" v-model="form.cc"></b-form-input>
             </b-form-group>
-            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="bcc" label="Bcc:" label-for="bcc">
+            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="bcc" label="Bcc:"
+              label-for="bcc">
               <b-form-input id="bccInput" type="email" label-cols="2" v-model="form.bcc"></b-form-input>
             </b-form-group>
-            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="subject" label="Subject:"
+            <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="subject"
+              label="Subject:"
               label-for="subject">
               <b-form-input id="subjectInput" v-model="form.subject"></b-form-input>
             </b-form-group>
@@ -69,9 +73,10 @@
             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
             // http.ClientRequest in node.js
             console.log(error.request)
+            this.$parent.showAlertMessage(error.message ? error.message : 'Internal server error in sending email.')
           } else {
             // Something happened in setting up the request that triggered an Error
-            console.log('Error', error.message)
+            this.$parent.showAlertMessage(error.message)
           }
         })
       },
