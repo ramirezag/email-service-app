@@ -2,7 +2,7 @@ const fs = require('fs')
 const express = require('express')
 const app = express()
 const path = require('path')
-const port = process.env.port || 8081
+const port = process.env.port || 8080
 const distDir = path.join(__dirname, '../dist')
 const prodEnvConfig = require('./../config/prod.env')
 
@@ -32,10 +32,15 @@ app.get('*', function (req, res) {
       res.status(404)
     }
   } else {
-    if (req.path === '/') {
-      path = 'index.html'
+    if (path.indexOf('__webpack_hmr') !== -1) {
+      // For some reason hmr is included when dockerized
+      res.status(404)
+    } else {
+      if (path === '/') {
+        path = 'index.html'
+      }
+      res.sendFile(path, {root: distDir})
     }
-    res.sendFile(path, {root: distDir})
   }
 })
 
@@ -44,4 +49,8 @@ app.listen(port, (err) => {
     return console.log('Failed to start server.', err)
   }
   console.log(`Server is listening on ${port}`)
+})
+
+process.on('SIGINT', function () {
+  process.exit()
 })

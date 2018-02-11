@@ -5,7 +5,7 @@ if (fs.existsSync(dotEnvFile)) {
   try {
     const contents = fs.readFileSync(dotEnvFile, 'utf8')
     const properties = contents.split('\n')
-    for (const i = 0; i < properties.length; i++) {
+    for (let i = 0; i < properties.length; i++) {
       const property = properties[i].trim()
       if (property) { // Ignore whitespace
         const keyValue = property.split('=')
