@@ -1,17 +1,17 @@
-var fs = require('fs')
-var dotEnvFile = `${__dirname}/../.env`
-var config = {NODE_ENV: '"production"', API_BASE_URL: '"http://localhost:3000/api"'}
+const fs = require('fs')
+const dotEnvFile = `${__dirname}/../.env`
+const config = {NODE_ENV: '"production"', API_BASE_URL: '"http://localhost:3000/api"'}
 if (fs.existsSync(dotEnvFile)) {
   try {
-    var contents = fs.readFileSync(dotEnvFile, 'utf8')
-    var properties = contents.split('\n')
-    for (var i = 0; i < properties.length; i++) {
-      var property = properties[i].trim()
+    const contents = fs.readFileSync(dotEnvFile, 'utf8')
+    const properties = contents.split('\n')
+    for (const i = 0; i < properties.length; i++) {
+      const property = properties[i].trim()
       if (property) { // Ignore whitespace
-        var keyValue = property.split('=')
+        const keyValue = property.split('=')
         if (keyValue.length === 2) {
-          var key = keyValue[0]
-          var value = keyValue[1]
+          const key = keyValue[0]
+          let value = keyValue[1]
           if (!value.startsWith('"') && !value.endsWith('"')) {
             value = JSON.stringify(value)
           }
