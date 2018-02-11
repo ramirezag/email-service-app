@@ -2,7 +2,7 @@ const fs = require('fs')
 const express = require('express')
 const app = express()
 const path = require('path')
-const port = process.env.port || 8080
+const port = 8080
 const distDir = path.join(__dirname, '../dist')
 const prodEnvConfig = require('./../config/prod.env')
 
