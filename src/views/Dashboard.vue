@@ -31,7 +31,7 @@
             </b-form-group>
             <b-form-group horizontal breakpoint="md" label-cols="2" label-class="text-sm-right" id="body" label="Body:"
               label-for="body">
-              <b-form-textarea id="bodyInput" v-model="form.body" :rows="9" :max-rows="12"></b-form-textarea>
+              <b-form-textarea id="bodyInput" v-model="form.body" :rows="6" :max-rows="9"></b-form-textarea>
             </b-form-group>
             <b-row class="action-buttons" align-h="center">
               <b-button type="submit" variant="primary" :disabled="sending">Submit</b-button>
