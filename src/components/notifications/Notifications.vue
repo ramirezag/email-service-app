@@ -5,15 +5,15 @@
         @close-notification="removeNotification"
         transition="fade">
         <b-col cols="12" md="8">
-          <b-alert v-bind:variant="notification.type" show dismissible>{{notification.text}}</b-alert>
+          <b-alert v-bind:variant="notification.type" show dismissible>
+            <span v-html="notification.text"></span>
+          </b-alert>
         </b-col>
       </b-row>
     </b-container>
 </template>
 
 <script>
-  import Notification from './Notification'
-
   export default {
     name: 'notifications',
     props: {

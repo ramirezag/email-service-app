@@ -28,4 +28,4 @@ if (fs.existsSync(dotEnvFile)) {
 } else {
   console.log('File .env does not exists.')
 }
-module.exports = config
+module.exports = {NODE_ENV: '"production"', API_BASE_URL: '"http://localhost:3000/api"'}
