@@ -64,7 +64,7 @@
         These are the rules for a valid email address:
         <ul>
           <li>Local-parts (characters before <code>@</code>) may consist of any combination of alphabetic characters, digits, or any of the special characters - <code>! # $ % & ' * + - / = ? ^ _ \` { | } ~</code></li>
-          <li>Character . ( period, dot or fullstop) provided that it is not the first or last character and it will not come one after the other.</li>
+          <li>Character . ( period, dot or fullstop) provided that it is not the first or last character.</li>
         </ul>`,
         form: {
           from: '', to: '', cc: '', bcc: '', subject: '', body: ''
@@ -98,8 +98,20 @@
           let valid = true
           const emails = emailsString.split(',')
           for (let i = 0; i < emails.length; i++) {
-            const email = emails[i]
-            if (!this.emailRegex.test(email.trim())) {
+            let email = emails[i].trim()
+            if (email) {
+              const openingIdx = email.indexOf('<')
+              if (openingIdx !== -1) {
+                const closingIdx = email.lastIndexOf('>')
+                if (closingIdx !== -1) {
+                  email = email.substring(openingIdx + 1, closingIdx).trim()
+                }
+              }
+              if (!this.emailRegex.test(email.trim())) {
+                valid = false
+                break
+              }
+            } else if (i !== emails.length - 1) {
               valid = false
               break
             }
